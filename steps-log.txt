@@ -1,0 +1,125 @@
+zjn700:~/workspace $ npm install -g firebase-tools
+npm WARN deprecated node-uuid@1.4.8: Use uuid module instead
+/home/ubuntu/.nvm/versions/node/v8.1.3/bin/firebase -> /home/ubuntu/.nvm/versions/node/v8.1.3/lib/node_modules/firebase-tools/bin/firebase
+
+> grpc@1.3.8 install /home/ubuntu/.nvm/versions/node/v8.1.3/lib/node_modules/firebase-tools/node_modules/grpc
+> node-pre-gyp install --fallback-to-build --library=static_library
+
+[grpc] Success: "/home/ubuntu/.nvm/versions/node/v8.1.3/lib/node_modules/firebase-tools/node_modules/grpc/src/node/extension_binary/grpc_node.node" is installed via remote
+
+> @google-cloud/functions-emulator@1.0.0-alpha.21 postinstall /home/ubuntu/.nvm/versions/node/v8.1.3/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator
+> node scripts/upgrade-warning
+
+
+If you're upgrading @google-cloud/functions-emulator, these
+are the recommended upgrade steps:
+
+1.  Stop the currently running emulator, if any:
+
+        functions stop
+
+2.  Uninstall the current emulator, if any:
+
+        npm uninstall -g @google-cloud/functions-emulator
+
+3.  Install the new version of the emulator:
+
+        npm install -g @google-cloud/functions-emulator
+
+If you have trouble after upgrading, try deleting the config
+directory found in:
+
+    ~/.config/configstore/@google-cloud/functions-emulator
+
+Then restart the emulator. You can also check for any renegade
+Node.js emulator processes that may need to be killed:
+
+    ps aux | grep node
+
++ firebase-tools@3.9.1
+added 666 packages in 52.492s
+zjn700:~/workspace $ firebase login
+? Allow Firebase to collect anonymous CLI usage information? Yes
+
+Visit this URL on any device to log in:
+https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=706020814&redirect_uri=http%3A%2F%2Flocalhost%3A9005
+
+Waiting for authentication...
+^C
+zjn700:~/workspace $ firebase init
+
+Error: Command requires authentication, please run firebase login
+zjn700:~/workspace $ firebase
+
+  Usage: firebase [options] [command]
+
+
+  Commands:
+
+    auth:import [options] [dataFile]           import users into your Firebase project from a data file(.csv or .json)
+    auth:export [options] [dataFile]           Export accounts from your Firebase project into a data file
+    database:get [options] <path>              fetch and print JSON data at the specified path
+    database:push [options] <path> [infile]    add a new JSON object to a list of data in your Firebase
+    database:set [options] <path> [infile]     store JSON data at the specified path via STDIN, arg, or file
+    database:remove [options] <path>           remove data from your Firebase at the specified path
+    database:update [options] <path> [infile]  update some of the keys for the defined path in your Firebase
+    database:profile [options]                 profile the Realtime Database and generate a usage report
+    deploy [options]                           deploy code and assets to your Firebase project
+    hosting:disable [options]                  stop serving web traffic to your Firebase Hosting site
+    functions:log [options]                    read logs from deployed functions
+    functions:config:clone [options]           clone environment config from another project
+    functions:config:get [path]                fetch environment config stored at the given path
+    functions:config:set [values...]           set environment config with key=value syntax
+    functions:config:unset [keys...]           unset environment config at the specified path(s)
+    help [command]                             display help information
+    init [feature]                             setup a Firebase project in the current directory
+    list                                       list the Firebases to which you have access
+    login [options]                            log the CLI into Firebase
+    login:ci [options]                         generate an access token for use in non-interactive environments
+    logout                                     log the CLI out of Firebase
+    open [link]                                quickly open a browser to relevant project resources
+    serve [options]                            start a local server for your static assets
+    setup:web                                  display this project's setup information for the Firebase JS SDK
+    tools:migrate [options]                    ensure your firebase.json format is up to date
+    use [options] [alias_or_project_id]        set an active Firebase project for your working directory
+
+  Options:
+
+    -h, --help                           output usage information
+    -V, --version                        output the version number
+    -P, --project <alias_or_project_id>  the Firebase project to use for this command
+    -j, --json                           output JSON instead of text, also triggers non-interactive mode
+    --token <token>                      supply an auth token for this command
+    --non-interactive                    error out of the command instead of waiting for prompts
+    --interactive                        force interactive shell treatment even when not detected
+    --debug                              print verbose debug output and keep a debug log file
+
+zjn700:~/workspace $ firebase login
+? Allow Firebase to collect anonymous CLI usage information? Yes
+
+Visit this URL on any device to log in:
+https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=482043630&redirect_uri=http%3A%2F%2Flocalhost%3A9005
+
+Waiting for authentication...
+^C
+zjn700:~/workspace $ firebase login --no-localhost
+? Allow Firebase to collect anonymous CLI usage information? Yes
+
+Visit this URL on any device to log in:
+https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=269929348&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob
+
+? Paste authorization code here: 4/WF68lBvRkzEl3hZgieYu-Rf0yA2GnNHNAnR2AbvLKJ0
+
+✔  Success! Logged in as wsz2800@gmail.com
+zjn700:~/workspace $ 
+
+===============
+
+✔  hosting: 8 files uploaded successfully
+i  starting release process (may take several minutes)...
+
+✔  Deploy complete!
+
+Project Console: https://console.firebase.google.com/project/zjn700-9632f/overview
+Hosting URL: https://zjn700-9632f.firebaseapp.com
+zjn700:~/workspace/zjn700 (master) $ ng serve --host 0.0.0.0 --disable-host-check

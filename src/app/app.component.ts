@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'zjn700';
+  public showSteps:boolean = false;
+  
+  onClick() {
+    this.showSteps=!this.showSteps;
+  }
+  
 }

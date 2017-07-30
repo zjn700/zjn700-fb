@@ -1,0 +1,28 @@
+Built with Angular 4 on Cloud 9 and deployed on Firebase
+
+Ensure you are using the latest version of node
+nvm install node
+nvm list
+nvm alias default <number> (newest right now is 8, but use the first number of the version you just installed)
+nvm use <number>
+
+Install and use Angular CLI
+npm install -g @angular/cli
+ng new <project-name>
+ng serve --host 0.0.0.0 --disable-host-check (to run and test locally; disable-host-check required for c9)
+ng build --prod (to build dist directory for firebase) deployment
+
+Install and use Firebase CLI
+If you don't have one already, create a Firebase account, then create a new app with same name as your Angular app: Firebase
+npm install -g firebase-tools
+firebase login --no-localhost (--no-localhost required for c9)
+firebase init (in angular project directory)
+The cli will ask what folder to use as the public directory. Enter 'dist'
+"Next it will ask if this is a single page app and if it should rewrite all urls to index.html. For our app select yes. If it asks to over write the index.html file, select no."
+firebase deploy (select the matching app in the list presented)
+
+References
+Deploy Angular CLI Apps to Firebase - Cory Rylan
+Angular CLI
+Firebase Tools (CLI)
+Google Reference for Firebase CLI

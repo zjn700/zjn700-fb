@@ -1,0 +1,73 @@
+zjn700/shopping-list
+
+Quick setup — if you’ve done this kind of thing before
+or
+
+We recommend every repository include a README, LICENSE, and .gitignore.
+…or create a new repository on the command line
+
+echo "# shopping-list" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/zjn700/shopping-list.git
+git push -u origin master
+
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/zjn700/shopping-list.git
+git push -u origin master
+
+…or import code from another repository
+
+git pull origin master
+
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+ProTip! Use the URL for this page when adding GitHub as a remote.
+
+    Contact GitHub API Training Shop Blog About
+
+    © 2017 GitHub, Inc. Terms Privacy Security Status Help
+    
+== Other notes =====================
+
+git add .
+git commit -m <msg>
+git push origin master
+
+git branch -a   (list all branches)
+git checkout -b develop  (create  new branch called 'develop')
+git checkout <branch-name>  (switch between branches - must add/commit/push changes)
+git merge <branch-name> --no-ff (after switch to master , --no-ff retains all of the commit messages prior to the merge)
+
+// https://www.digitalocean.com/community/tutorials/how-to-use-git-branches
+// https://stackoverflow.com/questions/9069061/what-is-the-difference-between-git-merge-and-git-merge-no-ff
+
+Example:
+git checkout -b contact-form
+(do your work on "contact-form")
+git status
+git commit -am  "updated form in contact module"
+git checkout master
+git merge --no-ff contact-form
+git branch -d contact-form  (DELETES BRANCH!!)
+git push origin master
+
+== 
+
+$ git push origin --delete <branch_name>
+$ git branch -d <branch_name>
+If there are unmerged changes which you are confident of deleting:
+
+$ git branch -D <branch_name>
+Delete Local Branch
+
+To delete the local branch use:
+
+$ git branch -d branch_name
+
+Note: The -d option is an alias for --delete, which only deletes the branch if it has already been fully merged 
+in its upstream branch. You could also use -D, which is an alias for --delete --force, which deletes the branch 
+"irrespective of its merged status." [Source: man git-branch]
+
+https://stackoverflow.com/questions/2003505/how-do-i-delete-a-git-branch-both-locally-and-remotely
