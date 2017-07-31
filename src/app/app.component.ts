@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'zjn700';
   public showSteps:boolean = false;
-  
+  public testNgif:boolean=true
   public menuItems
   
   constructor() {}
