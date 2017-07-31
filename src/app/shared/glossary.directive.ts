@@ -21,7 +21,7 @@ export class GlossaryDirective {
   
   constructor(private el: ElementRef) { }
   
-  removeHtml(htmlString) {
+  removeHtml(htmlString) {   // used by method 2
       var t_htmlString = htmlString
       var t_pattern = /<(.*?)>/g;
       var t_execResultArray;
@@ -49,7 +49,7 @@ export class GlossaryDirective {
     
   }
   
-  restoreHtml(){
+  restoreHtml(){   // used by methd 2
     let restoredHtmString = this.encodedHtmlString;
     let t_htmlArray = this.htmlArray;
     for (let i=0; i<t_htmlArray.length; i++) {
@@ -62,6 +62,68 @@ export class GlossaryDirective {
     return restoredHtmString;
   
     
+  }
+  
+  removeAndReplaceAllTags(elementList) {  // method 2
+      // let menuItems = document.getElementsByClassName("zjn-container"); 
+        console.log('elementList')
+        console.log(elementList)
+        
+        this.removeHtml(elementList[0].outerHTML)
+        
+        for (var searchIndex = 0; searchIndex < this.testGlossary.length; searchIndex++) {
+          let searchTerm = this.testGlossary[searchIndex].term
+          let t_html = "<span class='glossary' title='" + this.testGlossary[searchIndex].definition +"'>" + searchTerm + "</span>"
+          // (.*)\bFoo\b(.*)  
+          let re = new RegExp("\\b"+searchTerm+"\\b", 'g'); 
+          //var re = new RegExp(searchTerm,"g");
+          console.log('re=========')
+          console.log(re)
+          
+          this.encodedHtmlString = this.encodedHtmlString.replace(re, t_html)
+        }
+        elementList[0].outerHTML = this.restoreHtml();    
+  }
+  
+  splitOnInnerHtmlReplaceTheRestore(elementList) {
+    console.log(elementList)
+    for (let i=0; i < elementList.length; i++) {
+        let searchTerm = '';
+          for (var searchIndex = 0; searchIndex < this.testGlossary.length; searchIndex++) {
+            searchTerm = this.testGlossary[searchIndex].term
+            let re = new RegExp("\\b"+searchTerm+"\\b"); 
+            console.log('re========')
+            console.log(re)
+            let t_html = "<span class='glossary' title='" + this.testGlossary[searchIndex].definition +"'>" + searchTerm + "</span>"
+            if (elementList[i].outerHTML.indexOf(searchTerm)!=-1) {
+              
+                  let listItem = elementList[i]
+                  let inHtml = elementList[i].innerHTML
+                  let t_element = this.clearSearchTermFromHtml(listItem, re);
+                  let split_array = t_element.split(re)  //menuItems[i].outerHTML.split(searchTerm)
+                  let rejoin_array = [];
+                  
+                  for (var j = 0; j < split_array.length; j++) {
+                      if (j  ==  split_array.length - 1 ){
+                        rejoin_array.push(split_array[j])
+                      } else {
+                          rejoin_array.push(split_array[j])
+                          rejoin_array.push(t_html)
+                      }
+                  }
+                  
+                  let t_ohtml = ""
+  
+                  for (var k=0; k < rejoin_array.length; k++) {
+                    t_ohtml += rejoin_array[k]
+                  }
+                  
+                  t_element = this.restoreSearchTermToHtml(t_ohtml, inHtml, searchTerm);
+                  elementList[i].outerHTML = t_element;
+              }
+            }
+      }
+
   }
   
   //@HostListener('mouseup') onMouseUp() {
@@ -86,51 +148,52 @@ export class GlossaryDirective {
         // }
         // menuItems[0].outerHTML = this.restoreHtml();
         
-        let menuItems = document.getElementsByClassName("zjn-container"); 
-
-          // let menuItems = document.getElementsByTagName("LI"); 
+        let elementList = document.getElementsByClassName("zjn-container"); 
+        //this.splitOnInnerHtmlReplaceTheRestore(elementList);
+        this.removeAndReplaceAllTags(elementList)
+          // // let menuItems = document.getElementsByTagName("LI"); 
           
-          var t_li_html = menuItems[0].outerHTML
-          console.log('t_li_html')
-          console.log(t_li_html)
+          // // var t_li_html = menuItems[0].outerHTML
+          // // console.log('t_li_html')
+          // // console.log(t_li_html)
 
-          console.log(menuItems)
-          for (let i=0; i < menuItems.length; i++) {
-              let searchTerm = '';
-                for (var searchIndex = 0; searchIndex < this.testGlossary.length; searchIndex++) {
-                  searchTerm = this.testGlossary[searchIndex].term
-                  let re = new RegExp("\\b"+searchTerm+"\\b"); 
-                  console.log('re========')
-                  console.log(re)
-                  let t_html = "<span class='glossary' title='" + this.testGlossary[searchIndex].definition +"'>" + searchTerm + "</span>"
-                  if (menuItems[i].outerHTML.indexOf(searchTerm)!=-1) {
+          // console.log(menuItems)
+          // for (let i=0; i < menuItems.length; i++) {
+          //     let searchTerm = '';
+          //       for (var searchIndex = 0; searchIndex < this.testGlossary.length; searchIndex++) {
+          //         searchTerm = this.testGlossary[searchIndex].term
+          //         let re = new RegExp("\\b"+searchTerm+"\\b"); 
+          //         console.log('re========')
+          //         console.log(re)
+          //         let t_html = "<span class='glossary' title='" + this.testGlossary[searchIndex].definition +"'>" + searchTerm + "</span>"
+          //         if (menuItems[i].outerHTML.indexOf(searchTerm)!=-1) {
                     
-                        let listItem = menuItems[i]
-                        let inHtml = menuItems[i].innerHTML
-                        let t_element = this.clearSearchTermFromHtml(listItem, re);
-                        let split_array = t_element.split(re)  //menuItems[i].outerHTML.split(searchTerm)
-                        let rejoin_array = [];
+          //               let listItem = menuItems[i]
+          //               let inHtml = menuItems[i].innerHTML
+          //               let t_element = this.clearSearchTermFromHtml(listItem, re);
+          //               let split_array = t_element.split(re)  //menuItems[i].outerHTML.split(searchTerm)
+          //               let rejoin_array = [];
                         
-                        for (var j = 0; j < split_array.length; j++) {
-                            if (j  ==  split_array.length - 1 ){
-                              rejoin_array.push(split_array[j])
-                            } else {
-                                rejoin_array.push(split_array[j])
-                                rejoin_array.push(t_html)
-                            }
-                        }
+          //               for (var j = 0; j < split_array.length; j++) {
+          //                   if (j  ==  split_array.length - 1 ){
+          //                     rejoin_array.push(split_array[j])
+          //                   } else {
+          //                       rejoin_array.push(split_array[j])
+          //                       rejoin_array.push(t_html)
+          //                   }
+          //               }
                         
-                        let t_ohtml = ""
+          //               let t_ohtml = ""
     
-                        for (var k=0; k < rejoin_array.length; k++) {
-                          t_ohtml += rejoin_array[k]
-                        }
+          //               for (var k=0; k < rejoin_array.length; k++) {
+          //                 t_ohtml += rejoin_array[k]
+          //               }
                         
-                        t_element = this.restoreSearchTermToHtml(t_ohtml, inHtml, searchTerm);
-                        menuItems[i].outerHTML = t_element;
-                    }
-                  }
-            }
+          //               t_element = this.restoreSearchTermToHtml(t_ohtml, inHtml, searchTerm);
+          //               menuItems[i].outerHTML = t_element;
+          //           }
+          //         }
+          //   }
             
       
           this.completed=true;
