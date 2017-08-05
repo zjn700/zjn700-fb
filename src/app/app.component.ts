@@ -9,7 +9,8 @@ export class AppComponent implements OnInit {
   title = 'zjn700';
   public showSteps:boolean = false;
   public testNgif:boolean=true
-  public menuItems
+  public menuItems;
+  public content = "testing 123"
   
   constructor() {}
   
@@ -27,10 +28,10 @@ export class AppComponent implements OnInit {
   
   onClick() {
     this.showSteps=!this.showSteps;
+  }
     
-    
-    
-    
+  switchLi() {
+    this.testNgif = !this.testNgif;
   }
   
 }

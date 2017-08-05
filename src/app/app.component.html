@@ -16,19 +16,21 @@
 </h2>
 
 <div *ngIf='showSteps'>
-  <div appGlossary class='zjn-container'>
-
+  <!--<div appGlossary class='zjn-container'>-->
+  <div appGlossaryOptions class='zjn-container'>
+    
+   <input type="textarea" value='node' name=""/>
   <ul>
     <div>Ensure you are using the latest version of node</div>
     <li>nvm install node nvm really?</li>
-    <li>nvm list</li>
+    <li>nvm list {{content}}</li>
     <li>nvm alias default &lt;number&gt; (newest right now is 8, but use the first number of the version you just installed)</li>
     <li>nvm use &lt;number&gt; nvm</li>
   </ul>
   
   <ul>Install and use Angular CLI
-    <li *ngIf='testNgif' title='ngc ngc ngc'>npm install -g @angular/cli true</li>
-    <li *ngIf='!testNgif'>npm install -g @angular/cli false</li>
+    <li (click)="switchLi()" *ngIf='testNgif' title='ng Node nvm'>npm install -g @angular/cli true</li>
+    <li (click)="switchLi()" *ngIf='!testNgif'>npm install -g @angular/cli false</li>
     <li>npm install -g @angular/cli</li>
     <li>ng new &lt;project-name&gt;</li>
     <li>ng serve --host 0.0.0.0 --disable-host-check (to run and test locally; disable-host-check required for c9)</li>

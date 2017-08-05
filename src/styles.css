@@ -7,3 +7,16 @@
     cursor: pointer;
     color:blue;
 }
+
+@media print {
+    
+     @page {
+        size: A4 landscape;
+        content: "kljh hihiu";
+        margin: 0cm;
+        margin-top: 1.5cm;
+        margin-bottom: 2.5cm;
+        @bottom-left { margin:0 }
+
+    }
+}
