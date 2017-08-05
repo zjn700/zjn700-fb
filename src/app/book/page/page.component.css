@@ -1,0 +1,178 @@
+
+.page {
+  
+  background: green;
+  height: 97vh;
+  max-height: 97vh;
+  /*min-height: 400px;*/
+  /*padding: 6vh 6vw;*/
+  font-size: 1em;
+}
+
+.left-panel {
+    float:left;
+    height:95vh;
+    width:60vw;
+    background:yellow;
+}
+.floatright {
+    float: right;
+}
+
+.illustration-box {
+    height:57%;
+    width:97%;
+    background:blue;
+}
+
+.illustration {
+    background:tomato;
+    height:97%;
+    width:97%;
+    margin:2% 4%;
+}
+
+.story-box {
+    height: 37%;
+    width:97%;
+    background:blue;
+}
+
+.story {
+    background:tomato;
+    height:97%;
+    width:97%;
+    margin:2% 4%;    
+}
+
+.right-panel {
+    float:right;
+    height: 95vh;
+    width:37vw;
+    background:yellow;
+    
+}
+
+ 
+@media screen and (orientation:landscape)  {
+
+    
+    .illustration-box {
+        
+    }
+
+    .story-box {
+        
+    
+    }
+}
+
+@media screen and (orientation:portrait)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ 
+    .page {
+
+    }
+    
+    .left-panel { 
+        width:97vw;
+        height: 97vh
+        
+    }
+    .right-panel {
+        float:left;
+        width:97vw;
+        height: 97vh;
+    }
+
+    
+    .illustration-box {
+        height:57%;
+        
+    }
+
+    .story-box {
+        height:42%;
+        width:97%;
+        background-color: blue;
+        
+    }    
+    .story {
+        height: 94%;
+    }
+}
+
+@media screen and (orientation:portrait) and (min-width:320px) { 
+    .page {
+        font-size: 1.21em
+    }
+}
+
+@media screen and (orientation:landscape) and (min-width:568px)  {
+    .page {
+        font-size: 1em
+    }   
+}
+
+@media screen and (orientation:portrait) and (min-width:360px) { 
+    .page {
+        font-size: 1.3em
+    }
+}
+
+@media screen and (orientation:landscape) and (min-width:640px)  {
+    .page {
+        font-size: 1.15em
+    }   
+}
+
+@media screen and (orientation:portrait) and (min-width:375px) { 
+    .page {
+        font-size: 1.37em
+    }
+}
+
+@media screen and (orientation:landscape) and (min-width:667px)  {
+    .page {
+        font-size: 1.21em
+    }   
+}
+
+@media screen and (orientation:portrait) and (min-width:412px) { 
+    .page {
+        font-size: 1.5em
+    }
+}
+@media screen and (orientation:landscape) and (min-width:732px)  {
+    .page {
+        font-size: 1.3em
+    }   
+}
+
+@media screen and (orientation:portrait) and (min-width:768px) { 
+    .page {
+        font-size: 2.5em
+    }
+}
+
+@media screen and (orientation:landscape) and (min-width:1024px)  {
+    .page {
+        font-size: 1.9em
+    }   
+}
+
+@media screen and (orientation:portrait) and (min-width:1024px)  {
+    .page {
+        font-size: 3.5em
+    }   
+}
+
+@media screen and (orientation:landscape) and (min-width:1366px)  {
+    .page {
+        font-size: 2.5em
+    }   
+}
+
+@media print{
+    .page {
+        font-size: 20pt;
+    }
+}

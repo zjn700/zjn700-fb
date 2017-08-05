@@ -1,0 +1,17 @@
+.zjn-title {
+    text-align:center;
+    
+}
+
+.zjn-container {
+    width:700px; 
+    margin:0 auto;
+}
+
+img {
+    cursor: pointer;
+}
+
+.glossary {
+    color:red;
+}
