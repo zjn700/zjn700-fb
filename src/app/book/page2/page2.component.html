@@ -1,0 +1,29 @@
+<div class="page">
+    <div class="leftPanel"
+        (click)="resizeImage()"
+        [ngStyle]="leftPanelStyle">
+
+        <div class="illustration-box">
+                <div *ngFor="let image of imageList"
+                      class="illustration">
+                    <img class="image-file" 
+                         [ngStyle]="imageStyle"
+                         src='{{image}}'>
+                </div>
+        </div> 
+        <div class="story-box">
+            <div class="story">
+                
+                I think we need to write more specific media query. Make sure if you write one media query it should be not effect to other view (Mob,Tab,Desk).
+                
+            </div>
+        </div>
+    </div>
+    <div class="right-panel"></div>
+    <div class="header">HEADER</div>
+    <div class="rightPanel">RIGHT</div>
+    <div class="footer">FOOTER</div>
+
+    
+
+</div>

@@ -10,6 +10,7 @@ import { GlossaryOptionsDirective } from './shared/glossary-options.directive';
 import { BookComponent } from './book/book.component';
 import { FirebaseGlossaryComponent } from './firebase-glossary/firebase-glossary.component';
 import { PageComponent } from './book/page/page.component';
+import { Page2Component } from './book/page2/page2.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PageComponent } from './book/page/page.component';
     GlossaryOptionsDirective,
     BookComponent,
     FirebaseGlossaryComponent,
-    PageComponent
+    PageComponent,
+    Page2Component
   ],
   imports: [
     BrowserModule,
